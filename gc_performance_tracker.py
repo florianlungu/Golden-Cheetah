@@ -23,14 +23,12 @@ athleteName = athlete['name']
 chartTitle = "Performance Tracker: " + athleteName
 chartSubTitle = "Chart displaying maximum monthly value of: "
 
-# Season metrics and time range in seconds (ok to edit this)
+# Chart settings (ok to edit this)
 ctlDays = 42
 ctlGCField = 'BikeStress'
 timeRanges = 0, 1200, 600, 300, 60, 10, 1
 fieldNames = ['CTL', '20min Pwr', '10min Pwr', '5min Pwr', '1min Pwr', '10sec Pwr', '1sec Pwr']
 colors = ['#ff46ac', '#ffa4fd', '#4389ff', '#3ab6ff', '#6688bd', '#a7b96d', 'greenyellow', '#50b329', '#de59da', '#b358ff']
-
-# Chart settings
 months = ['January', 'February', 'March', 'April', 'May', 'June', 'July','August', 'September', 'October', 'November', 'December']
 
 # Query data
@@ -61,7 +59,7 @@ for i in range(len(fieldNames)):
 					tssVals[k] += dataS[ctlGCField][j]
 		ctlY = 0
 		for k in range(len(ctlDates)):
-			# Option 1: set CTL using formula [Today’s TSS * (1-e^(-1/42)] + {Yesterday’s CTL * (e^(-1/42)]
+			# Option 1: set CTL using formula [Todayâ€™s TSS * (1-e^(-1/42)] + {Yesterdayâ€™s CTL * (e^(-1/42)]
 			# ctlVals[k] = tssVals[k]*(1-math.exp(-1/ctlDays))+ctlY*math.exp(-1/ctlDays)
 					
 			# Option 2: set CTL using formula Yesterday's CTL + (Today's TSS - Yesterday's CTL)/Time Constant

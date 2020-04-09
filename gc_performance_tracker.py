@@ -37,7 +37,7 @@ fig = go.Figure()
 # Query GC for season metrics or each time range
 for i in range(len(fieldNames)):
 	if fieldNames[i] == 'CTL':
-		dataS = GC.seasonMetrics(all=True, filter="", compare=False)
+		dataS = GC.seasonMetrics(all=True, filter='', compare=False)
 		startDate = dataS['date'][0]
 		ctlDates = []
 		ctlDateTimes = []
@@ -52,11 +52,14 @@ for i in range(len(fieldNames)):
 			dt = datetime.combine(startDate, datetime.min.time())
 			ctlDateTimes.append(dt)
 			startDate = startDate + timedelta(days=1)
-			
+		
+		# Set the total TSS value for each day
 		for j in range(len(dataS['date'])):
 			for k in range(len(ctlDates)):
 				if dataS['date'][j] == ctlDates[k]:
 					tssVals[k] += dataS[ctlGCField][j]
+
+		# Compute CTL
 		ctlY = 0
 		for k in range(len(ctlDates)):
 			# Option 1: set CTL using formula [Today’s TSS * (1-e^(-1/42)] + {Yesterday’s CTL * (e^(-1/42)]
@@ -64,13 +67,14 @@ for i in range(len(fieldNames)):
 					
 			# Option 2: set CTL using formula Yesterday's CTL + (Today's TSS - Yesterday's CTL)/Time Constant
 			ctlVals[k] = ctlY+(tssVals[k]-ctlY)/ctlDays
-			ctlY = ctlVals[k]							
+			ctlY = ctlVals[k]
 			
 		dataQ = {'datetime': ctlDateTimes, 'ctl': ctlVals} 
 				
 	else:
 		dataQ = GC.seasonPeaks(series="power", duration=timeRanges[i])
 	
+	# Modify the data for charting
 	df = pd.DataFrame(dataQ)
 	df.columns = ['datetime','maxval']
 	df['maxval'] = df['maxval'].round(0)

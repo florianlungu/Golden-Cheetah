@@ -74,7 +74,7 @@ for i in range(len(fieldNames)):
 		dataQ = {'datetime': ctlDateTimes, 'ctl': ctlVals} 
 				
 	else:
-		dataQ = GC.seasonPeaks(series="power", duration=timeRanges[i])
+		dataQ = GC.seasonPeaks(all=True, series="power", duration=timeRanges[i])
 	
 	# Modify the data for charting
 	df = pd.DataFrame(dataQ)
@@ -131,4 +131,4 @@ plotly.offline.plot({"data": fig}, auto_open = False, filename=temp_file.name)
 # Load plot
 GC.webpage(pathlib.Path(temp_file.name).as_uri())
 
-print('py chart code success') 
+print('py chart code success')

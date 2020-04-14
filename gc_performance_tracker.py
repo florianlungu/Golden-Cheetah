@@ -30,7 +30,6 @@ timeRanges = 0, 1200, 600, 300, 60, 10, 1
 fieldNames = ['CTL', '20min Pwr', '10min Pwr', '5min Pwr', '1min Pwr', '10sec Pwr', '1sec Pwr']
 colors = ['#ff46ac', '#ffa4fd', '#4389ff', '#3ab6ff', '#6688bd', '#a7b96d', 'greenyellow', '#50b329', '#de59da', '#b358ff']
 months = ['January', 'February', 'March', 'April', 'May', 'June', 'July','August', 'September', 'October', 'November', 'December']
-dataFilter='Data contains "P"' # OK to change to ''
 
 # Query data
 print('py chart code start')
@@ -44,7 +43,7 @@ tssVals = []
 # Query GC for season metrics or each time range
 for i in range(len(fieldNames)):
 	if fieldNames[i] == 'CTL':
-		dataS = GC.seasonMetrics(all=True, filter=dataFilter, compare=False)
+		dataS = GC.seasonMetrics(compare=False)
 		startDate = dataS['date'][0]
 
 		# Parse season metrics into all dates between first date and today
@@ -75,7 +74,7 @@ for i in range(len(fieldNames)):
 		dataQ = {'datetime': ctlDateTimes, 'ctl': ctlVals} 
 				
 	else:
-		dataQ = GC.seasonPeaks(all=True, filter=dataFilter, series="power", duration=timeRanges[i])
+		dataQ = GC.seasonPeaks(series="power", duration=timeRanges[i])
 	
 	# Modify the data for charting
 	df = pd.DataFrame(dataQ)

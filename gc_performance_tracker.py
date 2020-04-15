@@ -5,6 +5,7 @@
 ## Contact: florian@agourasoftware.com
 ##
 ## 06-Apr-2020 initial creation
+## 15-Apr-2020 bug fixes and enhancements
 ##
 import numpy as np
 import plotly

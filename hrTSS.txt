@@ -5,3 +5,17 @@ HR Zone 2 >>> 81-89% LTHR >>> 0.92 Trimp k
 HR Zone 3 >>> 90-93% LTHR >>> 1.17 Trimp k
 HR Zone 4 >>> 94-99% LTHR >>> 1.33 Trimp k
 HR Zone 5 >>> 100+% LTHR >>> 2.00 Trimp k
+
+
+
+
+To create a user defined metric in Golden Cheetah called myTSS that will be TSS if it is available or Trimp Zonal Points otherwise. 
+  
+Click on Tools > Options > Metrics > Custom > + (Plus symbol at the bottom)
+
+Formula to copy and paste:
+{ 
+value { BikeStress ? BikeStress : TRIMP_Zonal_Points; } 
+}
+
+Then go to Tools > Options > Metrics > Summary and add myTSS so it shows up on each activity. You can now use myTSS in a PMC chart instead of Trimp Points or TSS.

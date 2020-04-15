@@ -35,7 +35,6 @@ months = ['January', 'February', 'March', 'April', 'May', 'June', 'July','August
 # Query data
 print('py chart code start')
 fig = go.Figure()
-today = date.today()
 ctlDates = []
 ctlDateTimes = []
 ctlVals = []
@@ -46,9 +45,10 @@ for i in range(len(fieldNames)):
 	if fieldNames[i] == 'CTL':
 		dataS = GC.seasonMetrics(compare=False)
 		startDate = dataS['date'][0]
+		endDate = dataS['date'][-1]
 
 		# Parse season metrics into all dates between first date and today
-		while startDate < today:	
+		while startDate < endDate:	
 			tssVals.append(0)	
 			ctlVals.append(0)
 			ctlDates.append(startDate)

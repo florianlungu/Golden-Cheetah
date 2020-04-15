@@ -1,7 +1,0 @@
-Heart rate based training load score. Custom formula for Trimp Zonal Points.
-
-HR Zone 1 >>> 0-80% LTHR >>> 0.66 Trimp k
-HR Zone 2 >>> 81-89% LTHR >>> 0.92 Trimp k
-HR Zone 3 >>> 90-93% LTHR >>> 1.17 Trimp k
-HR Zone 4 >>> 94-99% LTHR >>> 1.33 Trimp k
-HR Zone 5 >>> 100+% LTHR >>> 2.00 Trimp k

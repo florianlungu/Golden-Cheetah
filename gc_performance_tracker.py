@@ -115,7 +115,7 @@ for j in range(len(df_pivoted.columns)):
 	fig.data[j].visible = True
 
 # Edit the layout
-fig.update_layout(title=chartTitle, xaxis_title='Month', yaxis_title='Watts', plot_bgcolor='#343434', paper_bgcolor='#343434', xaxis_gridcolor='rgba(0,0,0,0)', yaxis_gridcolor='#5e5e5e', font_color='white')
+fig.update_layout(title=chartTitle, xaxis_title='Month', yaxis_title='Watts', plot_bgcolor='#343434', paper_bgcolor='#343434', xaxis_gridcolor='rgba(0,0,0,0)', yaxis_gridcolor='#5e5e5e', font_color='white', hovermode = 'compare')
 
 # Create and add slider
 steps = []

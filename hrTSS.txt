@@ -1,5 +1,7 @@
 Heart rate based training load score. Custom formula for Trimp Zonal Points.
 
+Click on Tools > Options > Athlete > heartrate zones. Use the following for HR zones and Trimp Zonal Points:
+
 HR Zone 1 >>> 0-80% LTHR >>> 0.66 Trimp k
 HR Zone 2 >>> 81-89% LTHR >>> 0.92 Trimp k
 HR Zone 3 >>> 90-93% LTHR >>> 1.17 Trimp k
@@ -12,6 +14,8 @@ HR Zone 5 >>> 100+% LTHR >>> 2.00 Trimp k
 To create a user defined metric in Golden Cheetah called myTSS that will be TSS if it is available or Trimp Zonal Points otherwise. 
   
 Click on Tools > Options > Metrics > Custom > + (Plus symbol at the bottom)
+
+Set the type to total and percision to 0
 
 Formula to copy and paste:
 { 

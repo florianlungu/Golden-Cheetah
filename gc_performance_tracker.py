@@ -6,7 +6,7 @@
 ##
 ## 06-Apr-2020 initial creation
 ## 15-Apr-2020 bug fixes and enhancements
-## 17-Apr-2020 added hrTSS_field
+## 17-Apr-2020 added hr_stress as secondary field
 ##
 import numpy as np
 import plotly
@@ -27,8 +27,8 @@ chartSubTitle = "Chart displaying maximum monthly value of: "
 
 # Chart settings (ok to edit this)
 ctlDays = 42
-tss_field = 'BikeStress'
-hrTSS_field = 'TRIMP_Zonal_Points'
+power_stress = 'BikeStress'
+hr_stress = 'TRIMP_Zonal_Points'
 timeRanges = 0, 1200, 600, 300, 60, 10, 1
 fieldNames = ['CTL', '20min Pwr', '10min Pwr', '5min Pwr', '1min Pwr', '10sec Pwr', '1sec Pwr']
 colors = ['#ff46ac', '#ffa4fd', '#4389ff', '#3ab6ff', '#6688bd', '#a7b96d', 'greenyellow', '#50b329', '#de59da', '#b358ff']
@@ -62,10 +62,10 @@ for i in range(len(fieldNames)):
 		for j in range(len(dataS['date'])):
 			for k in range(len(ctlDates)):
 				if dataS['date'][j] == ctlDates[k]:
-					if dataS[tss_field][j] == 0.0:
-						tssVals[k] += dataS[hrTSS_field][j]
+					if dataS[power_stress][j] == 0.0:
+						tssVals[k] += dataS[hr_stress][j]
 					else:
-						tssVals[k] += dataS[tss_field][j]
+						tssVals[k] += dataS[power_stress][j]
 
 		# Compute CTL
 		ctlY = 0

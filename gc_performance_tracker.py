@@ -6,6 +6,7 @@
 ##
 ## 06-Apr-2020 initial creation
 ## 15-Apr-2020 bug fixes and enhancements
+## 17-Apr-2020 added hrTSS_field
 ##
 import numpy as np
 import plotly
@@ -26,7 +27,8 @@ chartSubTitle = "Chart displaying maximum monthly value of: "
 
 # Chart settings (ok to edit this)
 ctlDays = 42
-ctlGCField = 'BikeStress'
+tss_field = 'BikeStress'
+hrTSS_field = 'TRIMP_Zonal_Points'
 timeRanges = 0, 1200, 600, 300, 60, 10, 1
 fieldNames = ['CTL', '20min Pwr', '10min Pwr', '5min Pwr', '1min Pwr', '10sec Pwr', '1sec Pwr']
 colors = ['#ff46ac', '#ffa4fd', '#4389ff', '#3ab6ff', '#6688bd', '#a7b96d', 'greenyellow', '#50b329', '#de59da', '#b358ff']
@@ -47,7 +49,7 @@ for i in range(len(fieldNames)):
 		startDate = dataS['date'][0]
 		endDate = dataS['date'][-1]
 
-		# Parse season metrics into all dates between first date and today
+		# Parse season metrics into all dates between first date and last day
 		while startDate < endDate:	
 			tssVals.append(0)	
 			ctlVals.append(0)
@@ -60,7 +62,10 @@ for i in range(len(fieldNames)):
 		for j in range(len(dataS['date'])):
 			for k in range(len(ctlDates)):
 				if dataS['date'][j] == ctlDates[k]:
-					tssVals[k] += dataS[ctlGCField][j]
+					if dataS[tss_field][j] == 0.0:
+						tssVals[k] += dataS[hrTSS_field][j]
+					else:
+						tssVals[k] += dataS[tss_field][j]
 
 		# Compute CTL
 		ctlY = 0

@@ -7,6 +7,7 @@
 ## 06-Apr-2020 initial creation
 ## 15-Apr-2020 bug fixes and enhancements
 ## 17-Apr-2020 added hr_stress as secondary field
+## 20-Apr-2020 date range fix
 ##
 import numpy as np
 import plotly
@@ -41,11 +42,13 @@ ctlDates = []
 ctlDateTimes = []
 ctlVals = []
 tssVals = []
+filteredDates = []
+filteredCTL = []
 
 # Query GC for season metrics or each time range
 for i in range(len(fieldNames)):
 	if fieldNames[i] == 'CTL':
-		dataS = GC.seasonMetrics(compare=False)
+		dataS = GC.seasonMetrics(all=True, compare=False)
 		startDate = dataS['date'][0]
 		endDate = dataS['date'][-1]
 
@@ -77,7 +80,17 @@ for i in range(len(fieldNames)):
 			ctlVals[k] = ctlY+(tssVals[k]-ctlY)/ctlDays
 			ctlY = ctlVals[k]
 			
-		dataQ = {'datetime': ctlDateTimes, 'ctl': ctlVals} 
+		# filter data
+		dataFilter = GC.seasonMetrics(compare=False)
+		startDate = dataFilter['date'][0]
+		endDate = dataFilter['date'][-1]
+
+		for k in range(len(ctlDates)):
+			if ctlDates[k] >= startDate and ctlDates[k] <= endDate:
+				filteredDates.append(ctlDateTimes[k])
+				filteredCTL.append(ctlVals[k])
+			
+		dataQ = {'datetime': filteredDates, 'ctl': filteredCTL} 
 				
 	else:
 		dataQ = GC.seasonPeaks(series="power", duration=timeRanges[i])

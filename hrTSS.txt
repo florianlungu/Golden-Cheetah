@@ -1,6 +1,8 @@
-When you're cycling or running without a power meter, use heart rate to compute training load score. Custom formula for Trimp Zonal Points which gives the same result as hrTSS from Training Peaks.
+When you're cycling or running without a power meter, use heart rate to compute training load score. 
+Custom formula for Trimp Zonal Points which gives the same result as hrTSS from Training Peaks.
 
-In Golden Cheetah, click on Tools > Options > Athlete > heartrate zones. Use the following for HR zones and Trimp Zonal Points:
+In Golden Cheetah, click on Tools > Options > Athlete > heartrate zones. 
+Use the following for HR zones and Trimp Zonal Points:
 
 HR Zone 1 >>> 0-80% LTHR >>> 0.66 Trimp k
 HR Zone 2 >>> 81-89% LTHR >>> 0.92 Trimp k

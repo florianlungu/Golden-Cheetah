@@ -46,10 +46,7 @@ filteredTSB = []
 # Query GC for season metrics
 dataS = GC.seasonMetrics(all=True, compare=False)
 startDate = dataS['date'][0]
-if dataS['date'][-1] + timedelta(days=10) >= date.today():
-	endDate = date.today()
-else:
-	endDate = dataS['date'][-1]
+endDate = dataS['date'][-1]
 
 # Parse season metrics into all dates between first date and last day
 while startDate <= endDate:	
@@ -86,10 +83,7 @@ for k in range(len(ctlDates)):
 # filter data
 dataFilter = GC.seasonMetrics(compare=False)
 startDate = dataFilter['date'][0]
-if dataFilter['date'][-1] + timedelta(days=10) >= date.today():
-	endDate = date.today()
-else:
-	endDate = dataFilter['date'][-1]
+endDate = dataFilter['date'][-1] + timedelta(days=1)
 
 for k in range(len(ctlDates)):
 	if ctlDates[k] >= startDate and ctlDates[k] <= endDate:

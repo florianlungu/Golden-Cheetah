@@ -82,12 +82,8 @@ for k in range(len(ctlDates)):
 
 # filter data
 dataFilter = GC.seasonMetrics(compare=False)
-if dataFilter['date'][-1] + timedelta(days=1) == date.today():
-	startDate = dataFilter['date'][0] + timedelta(days=1)
-	endDate = dataFilter['date'][-1] + timedelta(days=1)
-else:
-	startDate = dataFilter['date'][0]
-	endDate = dataFilter['date'][-1]
+startDate = dataFilter['date'][0]
+endDate = dataFilter['date'][-1]
 
 for k in range(len(ctlDates)):
 	if ctlDates[k] >= startDate and ctlDates[k] <= endDate:

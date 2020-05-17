@@ -20,7 +20,7 @@ from datetime import date, timedelta, datetime
 # Title 
 athlete = GC.athlete()
 athleteName = athlete['name']
-chartTitle = "Performance Management Chart (PMC): " + athleteName
+chartTitle = "Performance Management Chart: " + athleteName
 
 # Chart settings (ok to edit this)
 ctlDays = 42
@@ -98,6 +98,8 @@ for k in range(len(ctlDates)):
 			filteredTSB.append(0)
 		else:
 			filteredTSB.append(round(ctlVals[k-1],0)-round(atlVals[k-1],0))
+rampRate = filteredCTL[-1] - filteredCTL[0]
+chartTitle += "<br>CTL Ramp Rate: " + str(rampRate)
 			
 dataQ = {'datetime': filteredDates, 'ctl': filteredCTL, 'atl': filteredATL, 'tsb': filteredTSB} 
 	

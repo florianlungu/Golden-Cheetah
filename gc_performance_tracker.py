@@ -8,6 +8,7 @@
 ## 15-Apr-2020 bug fixes and enhancements
 ## 17-Apr-2020 added hr_stress as secondary field
 ## 20-Apr-2020 date range fix
+## 08-Jul-2020 added drop_duplicates before pandas.pivot
 ##
 import numpy as np
 import plotly
@@ -73,7 +74,7 @@ for i in range(len(fieldNames)):
 		# Compute CTL
 		ctlY = 0
 		for k in range(len(ctlDates)):
-			# Option 1: set CTL using formula [Todayâ€™s TSS * (1-e^(-1/42)] + {Yesterdayâ€™s CTL * (e^(-1/42)]
+			# Option 1: set CTL using formula [Today’s TSS * (1-e^(-1/42)] + {Yesterday’s CTL * (e^(-1/42)]
 			# ctlVals[k] = tssVals[k]*(1-math.exp(-1/ctlDays))+ctlY*math.exp(-1/ctlDays)
 					
 			# Option 2: set CTL using formula Yesterday's CTL + (Today's TSS - Yesterday's CTL)/Time Constant
@@ -112,6 +113,7 @@ for i in range(len(fieldNames)):
 	# Set monthly bests
 	resultSet = df.resample('M').max()
 	resultSet.set_index(['month_year'])
+	resultSet = resultSet.drop_duplicates(['month_year'])
 	df_pivoted = resultSet.pivot(index='month', columns='year', values='maxval').reindex(months)
 
 	# Create and style traces

@@ -1,0 +1,26 @@
+My notes from installing Golden Cheetah 3.5 & Python on Windows 10
+
+Install Python 3.6.4
+https://www.python.org/ftp/python/3.6.4/python-3.6.4-amd64.exe
+
+Make sure path is set in Environment Variables during install
+C:\Users\Home\AppData\Local\Programs\Python\Python36\
+
+Install Anaconda 3.7
+https://repo.anaconda.com/archive/Anaconda3-2019.10-Windows-x86_64.exe
+
+Open DOS and enter the following commands.
+C:\WINDOWS\system32>pip install sip==4.19.8
+C:\WINDOWS\system32>pip install numpy
+C:\WINDOWS\system32>pip install pandas
+C:\WINDOWS\system32>pip install scipy
+C:\WINDOWS\system32>pip install scikit-learn
+C:\WINDOWS\system32>pip install Lmfit
+C:\WINDOWS\system32>pip install colour
+C:\WINDOWS\system32>pip install plotly
+
+Install Golden Cheetah 3.5
+In Golden Cheetah click on Tools > Options > Select the checkbox for enable Python
+And set the Python Home to: C:/Users/Home/AppData/Local/Programs/Python/Python36
+
+Restart Golden Cheetah

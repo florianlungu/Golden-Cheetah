@@ -5,6 +5,7 @@
 ## Contact: florian@agourasoftware.com
 ##
 ## 20-Apr-2020 initial creation
+## 07-Jan-2021 updated title
 ##
 import numpy as np
 import plotly
@@ -20,7 +21,7 @@ from datetime import date, timedelta, datetime
 # Title 
 athlete = GC.athlete()
 athleteName = athlete['name']
-chartTitle = "Performance Management Chart: " + athleteName
+chartTitle = athleteName
 
 # Chart settings (ok to edit this)
 ctlDays = 42
@@ -104,7 +105,7 @@ for k in range(len(ctlDates)):
 		else:
 			filteredTSB.append(round(ctlVals[k-1],0)-round(atlVals[k-1],0))
 rampRate = filteredCTL[-1] - filteredCTL[0]
-chartTitle += "<br>CTL Ramp Rate: " + str(rampRate)
+chartTitle += ": " + endDate.strftime("%B %d, %Y") + "<br>CTL " + str(int(filteredCTL[-1])) + " — ATL " + str(int(filteredATL[-1])) + " — TSB " + str(int(filteredTSB[-1]))
 			
 dataQ = {'datetime': filteredDates, 'ctl': filteredCTL, 'atl': filteredATL, 'tsb': filteredTSB} 
 	

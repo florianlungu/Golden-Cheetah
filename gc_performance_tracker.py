@@ -9,6 +9,7 @@
 ## 17-Apr-2020 added hr_stress as secondary field
 ## 20-Apr-2020 date range fix
 ## 08-Jul-2020 added drop_duplicates before pandas.pivot
+## 13-Jan-2021 updated color code
 ##
 import numpy as np
 import plotly
@@ -118,7 +119,7 @@ for i in range(len(fieldNames)):
 
 	# Create and style traces
 	tColumns = df_pivoted.columns
-	rightColor = len(tColumns)-1-(len(colors)*int(len(tColumns)/len(colors)))
+	rightColor = len(colors)-1
 	for colName in reversed(tColumns):
 		fig.add_trace(go.Scatter(visible=False, x=months, y=df_pivoted[colName], name=colName, line=dict(color=colors[rightColor], width=3)))
 		rightColor = rightColor-1

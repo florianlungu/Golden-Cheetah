@@ -1,4 +1,4 @@
-<h3>Custom metrics & trend charts for Golden Cheetah 3.5+ to analyze cycling workouts & races</h3>
+<b>Custom metrics & trend charts for Golden Cheetah 3.5+ to analyze cycling workouts & races</b><br/><br/>
 <h3>Text files are instructions on how I did things</h3>
 <b>golden cheetah 3-5 upgrade.txt</b> - My notes from installing Golden Cheetah 3.5 & Python on Windows 10. Including which Python libraries I loaded to make the charts work<br/>
 <b>hrTSS.txt</b> - Custom formula for Trimp Zonal Points which gives the same result as hrTSS from Training Peaks<br/>

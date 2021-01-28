@@ -4,7 +4,7 @@
 <b>hrTSS.txt</b> - Custom formula for Trimp Zonal Points which gives the same result as hrTSS from Training Peaks<br/>
 <b>Sweet Spot Metric.txt</b> - Create a custom metric that shows time spent riding in "Sweet Spot"<br/>
 <br/>
-<h3>The *.gchart files can be imported straight into Golden Cheetah</h3>
+<h3>The *.gchart files are trends charts that can be imported straight into Golden Cheetah</h3>
 <b>Monthly Bests.ghcart</b> - Current month best efforts (5sec, 10sec, 1min, 5min, 10min, 20min)<br/>
 <b>PMC.ghcart</b> - <br/>
 <b>Performance Tracker.gchart</b> - <br/>

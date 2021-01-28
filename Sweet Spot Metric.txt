@@ -1,0 +1,29 @@
+In Golden Cheetah, click on Tools > Options > Metrics > Custom > [Plus Symbol] 
+Use the following to create a custom metric that shows time spent riding in "Sweet Spot"
+
+Symbol: Time_In_Sweet_Spot
+Name: Time in Sweet Spot
+Description: Time spent riding in sweet spot
+Precision: 0
+Time: True
+Units: seconds
+
+
+Formula:
+{
+    # only calculate for rides containing power
+    relevant { Data contains "P"; }
+
+    # initialise aggregating variables
+    init { ssTime <- 0; }
+
+    # for each sample, hopefully your device records data every second
+    sample { 		 
+ 		ssTime <- (POWER >= (config(ftp)*0.84)-1 && POWER <= (config(ftp)*0.97)+1) ? 
+					ssTime+1 : ssTime ;
+    }
+
+    # calculate metric value at end
+    value { ssTime; }
+}
+

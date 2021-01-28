@@ -1,5 +1,5 @@
 # Golden-Cheetah-charts
-<b>Custom metrics & trend charts for Golden Cheetah 3.5+</b><br/>
+<h1>Custom metrics & trend charts for Golden Cheetah 3.5+ to analyze cycling workouts & races</h1><br/>
 <br/>
 <b>Text files are instructions on how I did things</b><br/>
 golden cheetah 3-5 upgrade.txt - My notes from installing Golden Cheetah 3.5 & Python on Windows 10. Including which Python libraries I loaded to make the charts work<br/>

@@ -2,6 +2,7 @@
 <b>Trend charts for Golden Cheetah 3.5+</b><br/>
 <br/>
 <b>The *.gchart files can be imported straight into Golden Cheetah</b><br/>
+Monthly Bests.ghcart - Current month best efforts (5sec, 10sec, 1min, 5min, 10min, 20min)<br/>
 PMC.ghcart - <br/>
 Performance Tracker.gchart - <br/>
 Power Estimates.gcharts - <br/>

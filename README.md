@@ -7,6 +7,5 @@
 <h3>The *.gchart files are trends charts that can be imported straight into Golden Cheetah</h3>
 <b>PMC.ghcart</b> - CTL, ATL, & TSB trend chart using TSS when available otherwise Trimp Zonal Points as data source for each activity<br/>
 <b>Performance Tracker.gchart</b> - CTL and best power efforts (1sec, 10sec, 1min, 5min, 10min, 20min) shown as a trend chart month-over-month<br/>
-<b>Monthly Bests.ghcart</b> - Current month best peak power efforts (1sec, 10sec, 1min, 5min, 10min, 20min) as trend chart by year<br/>
 <b>Power Estimates.gchart</b> - FTP setting, FTP estimate, 30 minute best efforts, 20 minute * 0.95 best efforts, VO2Max estimate, W' estimate. The purpose is that if you can't get your 30 minute best effort or 20 minute * 0.95 best effort near your FTP setting, the setting is too high. If your bests are above the FTP setting, the setting is too low.<br/>
 

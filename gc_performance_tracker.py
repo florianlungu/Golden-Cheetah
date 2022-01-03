@@ -55,7 +55,7 @@ for i in range(len(fieldNames)):
 		endDate = dataS['date'][-1]
 
 		# Parse season metrics into all dates between first date and last day
-		while startDate < endDate:	
+		while startDate <= endDate:	
 			tssVals.append(0)	
 			ctlVals.append(0)
 			ctlDates.append(startDate)
